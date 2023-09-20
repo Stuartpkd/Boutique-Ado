@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-=9!7b(v!4)cnn-c9s@k82k5qx-^&8-qxj#zeexo+$ak-ok@o@2
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['8000-stuartpkd-boutiqueado-vqq9h045foe.ws-eu104.gitpod.io']
+ALLOWED_HOSTS = ['8000-stuartpkd-boutiqueado-23x3vexfaxw.ws-eu104.gitpod.io']
 
 
 # Application definition
@@ -37,6 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
 ]
 
 MIDDLEWARE = [
@@ -66,6 +70,13 @@ TEMPLATES = [
         },
     },
 ]
+
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
+
+SITE_ID = 1
 
 WSGI_APPLICATION = 'boutique_ado.wsgi.application'
 
